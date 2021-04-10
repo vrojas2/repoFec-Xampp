@@ -52,14 +52,21 @@ class Dashboard extends Controller
 	{
 		$libro= new Libro();
 
-		if($archivo=$this->request->getFile('archivo') /*|| $archivo=$this->request->getFile('archivo')*/){
-			$nuevoNombre= $archivo->getRandomName();
-			$archivo->move('../public/fileBiblioteca/',$nuevoNombre);
-			//$archivo->move('../../public/fileBiblioteca/');
+		if($archivo=$this->request->getFile('archivo')){
+			$imagen=$this->request->getFile('imagen');
+
+			$nuevoNombreImg= $imagen->getRandomName();
+			$rutaImg= base_url().'/biblioteca/imgBiblioteca/'.$nuevoNombreImg;
+			$imagen->move('../public/biblioteca/imgBiblioteca/',$nuevoNombreImg);
+
+			$nuevoNombreFile= $archivo->getRandomName();
+			$rutaFile= base_url().'/biblioteca/fileBiblioteca/'.$nuevoNombreFile;
+			$archivo->move('../public/biblioteca/fileBiblioteca/',$nuevoNombreFile);
+
 			$datos=[
 				'titulo'=> $this->request->getVar('titulo'),
-				// 'archivo'=>$archivo,
-				'archivo'=>$nuevoNombre
+				'archivo'=> $rutaFile,
+				'imagen'=> $rutaImg
 			];
 			$libro->insert($datos);
 		}else{

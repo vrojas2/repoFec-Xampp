@@ -10,19 +10,24 @@
                         <div class="form-group">
                             <label for="titulo">Título:</label>
                             <input type="text" class="form-control" id="titulo"
-                            placeholder="Título" name="titulo">
+                            placeholder="Título" name="titulo" required>
                         </div>
 
-                        <div class="form-group">
-                            <label for="imagen">Imagen:</label>
-                            <input id="archivo" class="form-control-file" type="file" name="imagen">
+                        <label for="imagen">Imagen</label>
+                        <div class="custom-file mb-2">
+                            <input id="imagen" class="custom-file-input" type="file"
+                            name="imagen" required>
+                            <label for="imagen" class="custom-file-label">
+                                Subir imagen del libro
+                            </label>
                         </div>
 
                         <label for="archivo">Archivo</label>
-                        <!-- <div class="custom-file mb-2">
-                            <input id="archivo" class="custom-file-input" type="file" name="">
+                        <div class="custom-file mb-2">
+                            <input id="archivo" class="custom-file-input" type="file"
+                            name="archivo" required>
                             <label for="archivo" class="custom-file-label">Subir archivo</label>
-                        </div> -->
+                        </div>
 
                         <button class="btn btn-primary" type="submit">Guardar</button>
                     </form>
