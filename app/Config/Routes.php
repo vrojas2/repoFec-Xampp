@@ -53,3 +53,4 @@ if (file_exists(APPPATH . 'Config/' . ENVIRONMENT . '/Routes.php'))
 }
 $routes->get('registroBiblioteca', 'Dashboard::registroBiblioteca');
 $routes->post('guardarLibro', 'Dashboard::guardarLibro');
+$routes->get('eliminarLibro/(:num)', 'Dashboard::eliminarLibro/$1');

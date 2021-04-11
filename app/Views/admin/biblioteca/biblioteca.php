@@ -15,6 +15,7 @@
                 <button type="submit" class="btn btn-primary">Aceptar</button>
             </form>
 
+            <!-- // <?php echo base_url()."/Dashboard/bibliotecaAdmin";?>  -->
 
             <div class="table-responsive mt-5">
                 <table class="table">
@@ -38,7 +39,11 @@
                             <td> <?=$libro['archivo']; ?> </td>
                             <td> <?=$libro['imagen']; ?> </td>
                             <td><a href="registroBiblioteca.html" class="btn btn-warning">Editar</a></td>
-                            <td><a class="btn btn-danger">Eliminar</a></td>
+                            <td>
+                                <a href="<?=base_url('eliminarLibro/'.$libro['id']);?>" class="btn btn-danger" type="button">
+                                    Eliminar
+                                </a>
+                            </td>
                         </tr>
 
                         <?php endforeach; ?>

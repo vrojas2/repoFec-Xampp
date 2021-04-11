@@ -56,23 +56,41 @@ class Dashboard extends Controller
 			$imagen=$this->request->getFile('imagen');
 
 			$nuevoNombreImg= $imagen->getRandomName();
-			$rutaImg= base_url().'/biblioteca/imgBiblioteca/'.$nuevoNombreImg;
+			//$rutaImg= base_url().'/biblioteca/imgBiblioteca/'.$nuevoNombreImg;
 			$imagen->move('../public/biblioteca/imgBiblioteca/',$nuevoNombreImg);
 
 			$nuevoNombreFile= $archivo->getRandomName();
-			$rutaFile= base_url().'/biblioteca/fileBiblioteca/'.$nuevoNombreFile;
+			//$rutaFile= base_url().'/biblioteca/fileBiblioteca/'.$nuevoNombreFile;
 			$archivo->move('../public/biblioteca/fileBiblioteca/',$nuevoNombreFile);
 
 			$datos=[
 				'titulo'=> $this->request->getVar('titulo'),
-				'archivo'=> $rutaFile,
-				'imagen'=> $rutaImg
+				'archivo'=> $nuevoNombreFile,
+				'imagen'=> $nuevoNombreImg
 			];
 			$libro->insert($datos);
 		}else{
-			echo "algo ocurrio";
+			echo "algo salio mal";
 		}
-		echo "Ingresado a la BD";
+		return $this->response->redirect(base_url().'/Dashboard/bibliotecaAdmin');
+	}
+
+	public function eliminarLibro($id=null) {
+		$libro= new Libro();
+		$datosLibro= $libro->where('id',$id)->first();
+
+		$rutaImg=('../public/biblioteca/imgBiblioteca/'.$datosLibro['imagen']);
+		unlink($rutaImg);
+
+		$rutaFile=('../public/biblioteca/fileBiblioteca/'.$datosLibro['archivo']);
+		unlink($rutaFile);
+
+		$libro->where('id',$id)->delete($id);
+
+		return $this->response->redirect(base_url().'/Dashboard/bibliotecaAdmin');
+
+		// echo "eliminar registro".$id;
+
 	}
 
 	public function updateBiblioteca()
