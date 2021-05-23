@@ -29,3 +29,16 @@
             </div>
         </div>
     </nav>
+
+<!--
+<?php if(session('mensaje')){?>
+
+<div class="alert alert-danger" role="alert">
+    <?php
+    echo session('mensaje');
+    
+    ?>
+</div>
+<?php 
+    } ?>
+-->

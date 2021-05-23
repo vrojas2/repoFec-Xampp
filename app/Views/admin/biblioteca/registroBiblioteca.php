@@ -30,32 +30,9 @@
                         </div>
 
                         <button class="btn btn-primary" type="submit">Guardar</button>
+                        <a href="<?=site_url('/Dashboard/bibliotecaAdmin') ?>"
+                        class="btn btn-info">Cancelar</a>
                     </form>
-                    <!--
-                    <form>
-                        <div class="form-group">
-                            <label for="titulo">Título:</label>
-                            <input type="text" class="form-control" id="titulo"
-                            placeholder="Título" name="titulo">
-                        </div>
-
-                        <label for="exampleFormControlInput1">Archivo</label>
-                        <div class="custom-file mb-2">
-                            <input type="file" class="custom-file-input" id="customFile">
-                            <label class="custom-file-label" for="customFile">Subir archivo</label>
-                        </div>
-
-                        <label for="exampleFormControlInput1">Imagen</label>
-                        <div class="custom-file">
-                            <input type="file" class="custom-file-input" id="customFile">
-                            <label class="custom-file-label" for="customFile">Subir imagen</label>
-                        </div>
-
-                        <div class="text-center mt-3">
-                            <a href="biblioteca.html" class="btn btn-primary">Guardar</a>
-                        </div>
-                    </form>
-                    -->
                 </div>
             </div>
         </main>

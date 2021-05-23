@@ -37,12 +37,18 @@
                             <td> <?=$libro['id']; ?> </td>
                             <td> <?=$libro['titulo']; ?> </td>
                             <td> <?=$libro['archivo']; ?> </td>
-                            <td> <?=$libro['imagen']; ?> </td>
-                            <td><a href="registroBiblioteca.html" class="btn btn-warning">Editar</a></td>
                             <td>
-                                <a href="<?=base_url('eliminarLibro/'.$libro['id']);?>" class="btn btn-danger" type="button">
-                                    Eliminar
-                                </a>
+                                <img class="img-thumbnail" width="100" alt=""
+                                src="<?=base_url()?>/biblioteca/imgBiblioteca/<?=$libro['imagen'];?>">
+                                <?=$libro['imagen'];?>
+                            </td>
+                            <td>
+                                <a href="<?=base_url('editarLibro/'.$libro['id']);?>"
+                                class="btn btn-warning" type="button">Editar</a>
+                            </td>
+                            <td>
+                                <a href="<?=base_url('eliminarLibro/'.$libro['id']);?>"
+                                class="btn btn-danger" type="button">Eliminar</a>
                             </td>
                         </tr>
 
